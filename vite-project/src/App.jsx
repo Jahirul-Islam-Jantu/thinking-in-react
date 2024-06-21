@@ -1,10 +1,10 @@
 import React from 'react';
-import HomePage from "./pages/HomePage.jsx";
+import ToDoApp from "./pages/ToDoApp.jsx";
 
 const App = () => {
     return (
         <div>
-            <HomePage/>
+            <ToDoApp />
         </div>
     );
 };
