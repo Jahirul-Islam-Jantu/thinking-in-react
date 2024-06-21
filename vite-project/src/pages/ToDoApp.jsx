@@ -1,7 +1,10 @@
 import React from 'react';
+
+
 const tasks = {
     id: "unique-id-001",
     subtitle: "Subtitle",
+    createdAt: '2024-06-21T06:27:15.501Z',
     tags: [
         {
             id: "unique-id-001",
@@ -35,7 +38,7 @@ const tasks = {
 
 
     }],
-    tasks: [
+    taskName: [
         {
             id: "task-id-001",
             title:"Foggy Nelson",
@@ -64,15 +67,47 @@ const tasks = {
 
 }
 
+function getDay(dateStr){
+    const date = new Date(dateStr).getDay();
+    const days = [
+        "Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"
+    ]
+    return days[date];
+}
 
 
 
+function formatDate(dateStr){
+    const date = new Date(dateStr)
+    return `${date.getFullYear()}-${date.getMonth() + 1}-${date.getDate()}`
+}
+
+const TagListItem = ({tag})=> {
+    return <li key={tag.id}><small>{tag.icon} - {tag.text}</small></li>
+}
+const CommentListItem = ({comment})=> {
+    return <div key={comment.id}><h3>{comment.user.name} </h3> <p>{comment.text}</p></div>
+}
+const TaskListItem = ({task})=> {
+    return <li key={task.id}><h3>{task.title}</h3> <p><small>{task.status}</small></p> <p>{task.text}</p></li>
+}
 
 const ToDoApp = () => {
     return (
-        <div>
-            <h1>Home Page</h1>
-            <p></p>
+        <div className="box-card">
+            <h1 className="title">{getDay(tasks.createdAt)}, {formatDate(tasks.createdAt)}</h1>
+            <h3 className="sub-title">{tasks.subtitle}</h3>
+            <ul className="tag-ul">
+                {tasks.tags.map((tag) => <TagListItem key={tag.id} tag={tag}/>)}
+            </ul>
+            <hr/>
+            <p>Note's Linked to people</p>
+            <div>
+                {tasks.comments.map((comment) => <CommentListItem key={comment.id} comment={comment}/>)}
+            </div>
+            <ul>
+                {tasks.taskName.map((task)=> <TaskListItem key={task.id} task={task}/>)}
+            </ul>
         </div>
     );
 };
