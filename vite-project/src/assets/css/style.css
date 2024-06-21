@@ -33,3 +33,27 @@ body{
 .tag-ul li{
     list-style-type:none
 }
+.line{
+    width: 5rem;
+    height: 2px;
+    background-color: #212121;
+    margin-bottom: 1rem;
+}
+.comments{
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+
+ }
+.tasks{
+    list-style-type: none;
+}
+.tasks li{
+    margin-bottom: 0.5rem;
+}
+.task-elements{
+    display: flex;
+    align-items: flex-start;
+    gap: 1rem;
+}
+
+
