@@ -1,4 +1,5 @@
 import React from 'react';
+import MasterLayOut from "../components/MasterLayOut.jsx";
 
 
 const tasks = [
@@ -369,11 +370,16 @@ const TaskCard = ({task})=> {
 
 const ToDoApp = () => {
     return (
-        <div className="task-elements">
 
-            {tasks.map(task => <TaskCard task={task} key={task.id} />)}
-        </div>
+            <div className="task-elements">
+                {tasks.map(task => <TaskCard task={task} key={task.id}/>)}
+            </div>
+
     );
 };
 
+
+
+
 export default ToDoApp;
+
