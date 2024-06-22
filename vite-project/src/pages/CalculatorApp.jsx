@@ -1,14 +1,28 @@
-import React from 'react';
-import MasterLayOut from "../components/MasterLayOut.jsx";
+import React, {useState} from 'react';
+
+
+const InitialState = {
+    a: 0,
+    b: 0,
+}
 
 const CalculatorApp = () => {
+
+  const [inputState, setInputState] = useState({...InitialState});
+  const handleInputForms = (e)=>{
+      setInputState({...inputState,});
+      [e.target.name]: e.target.value;
+
+  }
+
+
     return (
-        <div style={{ padding: "1rem", textAlign: "center" }}>
+        <div style={{ padding: "1rem", width: "50%", margin: "0 auto" }}>
             <h1>Result : 0</h1>
             <div style={{marginTop: "1rem"}}>
                 <h3 style={{marginBottom: "1rem"}}>Inputs :</h3>
-                <input  type="number"/>
-                <input type="number" />
+                <input onChange={handleInputForms}  type="number" value={inputState.a}/>
+                <input onChange={handleInputForms} type="number" value={inputState.b}/>
             </div>
             <div style={{marginTop: "1rem"}}>
                 <h3>Operations :</h3>
