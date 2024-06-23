@@ -6,7 +6,7 @@
  * Todo: Restore history.
  */
 
-import React, {useState} from 'react';
+import React, {  useState} from 'react';
 function* generateId(){
     let id = 0
     while (true){
@@ -28,6 +28,10 @@ const CalculatorApp = () => {
   const [inputState, setInputState] = useState({...InitialState});
   const [result, setResult] = useState(0);
   const [historyList, setHistoryList] = useState([]);
+  const [restoredHistoryList, setRestoredHistoryList] = useState(null);
+
+
+
   // const handleInputForms = (e)=> {
   //     setInputState({
   //      ...inputState,
@@ -61,6 +65,13 @@ const CalculatorApp = () => {
         setInputState({...InitialState});
         setResult(0);
     }
+    const handleRestoreBtn = (historyItem)=>{
+        setInputState({...historyItem.inputs });
+        setResult(historyItem.result);
+        setRestoredHistoryList(historyItem);
+
+
+    }
 
     const handleOperations = (operations)=>{
         if(!inputState.a || !inputState.b){
@@ -74,7 +85,7 @@ const CalculatorApp = () => {
 
         const historyItem = {
             id: getId.next().value,
-            inputs: inputState,
+            inputs: {...inputState},
             operations,
             result,
             date: new Date()
@@ -83,8 +94,7 @@ const CalculatorApp = () => {
         setHistoryList([historyItem, ...historyList ])
 
 
-
-    }
+}
 
 
     return (
@@ -112,7 +122,7 @@ const CalculatorApp = () => {
                     {historyList.map((historyItem) => (<li key={historyItem.id}>
                         <p>Operation: {historyItem.inputs.a} {historyItem.operations} {historyItem.inputs.b}, Result: {historyItem.result}</p>
                         <small>Created At: {historyItem.date.toLocaleDateString()}, {historyItem.date.toLocaleTimeString()}</small>
-                        <button className="btn">Restore</button>
+                        <button disabled={restoredHistoryList !== null && restoredHistoryList.id === historyItem.id} onClick={()=>handleRestoreBtn(historyItem)} className="btn">Restore</button>
                     </li>))}
 
                 </ul>}
