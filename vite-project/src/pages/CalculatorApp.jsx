@@ -45,6 +45,14 @@ const CalculatorApp = () => {
         });
     }
 
+    const handleClearOps = ()=>{
+        setInputState({...InitialState});
+    }
+    const handleOperations = (operations)=>{
+        const f = new Function("operations", `return ${inputState.a} ${operations} ${inputState.b}`);
+        console.log(f(operations));
+    }
+
 
     return (
         <div style={{ padding: "1rem", width: "50%", margin: "0 auto" }}>
@@ -56,11 +64,15 @@ const CalculatorApp = () => {
             </div>
             <div style={{marginTop: "1rem"}}>
                 <h3>Operations :</h3>
-                <button className="btn">+</button>
-                <button className="btn">-</button>
-                <button className="btn">*</button>
-                <button className="btn">/</button>
-                <button className="btn">Clear</button>
+                <button onClick={()=>handleOperations('+')} className="btn">+</button>
+                <button onClick={()=>handleOperations('-')} className="btn">-</button>
+                <button onClick={()=>handleOperations('*')} className="btn">*</button>
+                <button onClick={()=>handleOperations('/')} className="btn">/</button>
+                <button onClick={handleClearOps} className="btn">Clear</button>
+            </div>
+            <div>
+                <p>History</p>
+                <p><small>There is no history</small></p>
             </div>
         </div>
     );
