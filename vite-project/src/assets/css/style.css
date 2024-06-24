@@ -76,12 +76,28 @@ body{
 
 
 }
-
+.btn-group{
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    margin: 0.5rem;
+}
 .btn{
     padding: 0.5rem 1rem;
     border: 1px solid darkgray;
     border-radius: 0.5rem;
     margin: 0.5rem 0.2rem;
     cursor: pointer;
+    background-color: #ddd;
+    color: #212121;
+    ...customStyle
+    ...(disabled && disabledStyle)
+}
+.field{
+    padding: 0.5rem;
+    border: 1px solid darkgray;
+    border-radius: 0.5rem;
+    margin: 0.5rem 0.2rem;
+
 }
 

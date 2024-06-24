@@ -7,6 +7,11 @@
  */
 
 import React, {  useState} from 'react';
+import NumberField from "../components/Calculator/ui/NumberField.jsx";
+import Button from "../components/Calculator/ui/Button.jsx";
+import InputSection from "../components/Calculator/inputs/InputSection.jsx";
+import OperationSection from "../components/Calculator/operations/OperationSection.jsx";
+import HistorySection from "../components/Calculator/history/HistorySection.jsx";
 function* generateId(){
     let id = 0
     while (true){
@@ -69,8 +74,6 @@ const CalculatorApp = () => {
         setInputState({...historyItem.inputs });
         setResult(historyItem.result);
         setRestoredHistoryList(historyItem);
-
-
     }
 
     const handleOperations = (operations)=>{
@@ -100,35 +103,10 @@ const CalculatorApp = () => {
     return (
         <div style={{ padding: "1rem", width: "50%", margin: "0 auto" }}>
             <h1>Result : {result} </h1>
-            <div style={{marginTop: "1rem"}}>
-                <h3 style={{marginBottom: "1rem"}}>Inputs :</h3>
-                <input onChange={(e)=>handleInputChange({a: parseInt(e.target.value)})}  type="number" value={inputState.a} name="a"/>
-                <input onChange={(e)=>handleInputChange({b: parseInt(e.target.value)})} type="number" value={inputState.b} name="b"/>
-            </div>
-            <div style={{marginTop: "1rem"}}>
-                <h3>Operations :</h3>
-                <button onClick={()=>handleOperations('+')} className="btn">+</button>
-                <button onClick={()=>handleOperations('-')} className="btn">-</button>
-                <button onClick={()=>handleOperations('*')} className="btn">*</button>
-                <button onClick={()=>handleOperations('/')} className="btn">/</button>
-                <button onClick={()=>handleOperations('%')} className="btn">%</button>
-                <button onClick={handleClearOps} className="btn">Clear</button>
-            </div>
-            <div>
-                <h2><span>History</span></h2>
-                {historyList.length === 0 ? <p>
-                    <small>There is no history</small>
-                </p> : <ul style={{marginTop: "1rem"}}>
-                    {historyList.map((historyItem) => (<li key={historyItem.id}>
-                        <p>Operation: {historyItem.inputs.a} {historyItem.operations} {historyItem.inputs.b}, Result: {historyItem.result}</p>
-                        <small>Created At: {historyItem.date.toLocaleDateString()}, {historyItem.date.toLocaleTimeString()}</small>
-                        <button disabled={restoredHistoryList !== null && restoredHistoryList.id === historyItem.id} onClick={()=>handleRestoreBtn(historyItem)} className="btn">Restore</button>
-                    </li>))}
+                <InputSection inputs={inputState} handleInputChange={handleInputChange}/>
+                <OperationSection handleOperations={handleOperations} handleClearOps={handleClearOps}/>
+                <HistorySection historyList={historyList} restoredHistoryList={restoredHistoryList} handleRestoreBtn={handleRestoreBtn}/>
 
-                </ul>}
-
-
-            </div>
         </div>
     );
 };
