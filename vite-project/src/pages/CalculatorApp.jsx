@@ -12,6 +12,7 @@ import Button from "../components/Calculator/ui/Button.jsx";
 import InputSection from "../components/Calculator/inputs/InputSection.jsx";
 import OperationSection from "../components/Calculator/operations/OperationSection.jsx";
 import HistorySection from "../components/Calculator/history/HistorySection.jsx";
+import MasterLayOut from "../components/MasterLayOut.jsx";
 function* generateId(){
     let id = 0
     while (true){
@@ -102,6 +103,7 @@ const CalculatorApp = () => {
 
     return (
         <div style={{ padding: "1rem", width: "50%", margin: "0 auto" }}>
+            <MasterLayOut/>
             <h1>Result : {result} </h1>
                 <InputSection inputs={inputState} handleInputChange={handleInputChange}/>
                 <OperationSection handleOperations={handleOperations} handleClearOps={handleClearOps}/>

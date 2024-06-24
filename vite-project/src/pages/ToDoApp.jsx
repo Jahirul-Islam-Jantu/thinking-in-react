@@ -370,11 +370,13 @@ const TaskCard = ({task})=> {
 
 const ToDoApp = () => {
     return (
-
+        <div style={{ padding: "1rem", width: "auto", margin: "0 auto" }}>
+             <MasterLayOut/>
             <div className="task-elements">
+
                 {tasks.map(task => <TaskCard task={task} key={task.id}/>)}
             </div>
-
+        </div>
     );
 };
 

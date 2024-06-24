@@ -6,7 +6,8 @@ const Menu = () => {
         <div className="menu">
             <NavLink className="nav-link" to="/">Calculator</NavLink>
             <NavLink className="nav-link" to="/todoapp">Todo app</NavLink>
-            <NavLink className="nav-link" to="/calc">Todo app</NavLink>
+            <NavLink className="nav-link" to="/contactList">Contact</NavLink>
+
         </div>
     );
 };
