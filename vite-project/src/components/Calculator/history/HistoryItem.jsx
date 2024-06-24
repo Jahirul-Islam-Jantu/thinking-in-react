@@ -1,22 +1,34 @@
-import React from 'react';
+import React, {useState} from 'react';
 import propTypes from 'prop-types';
 import PropTypes from "prop-types";
 import Button from "../ui/Button.jsx";
 
 const HistoryItem = ({historyItem, disabled, handleRestoreBtn}) => {
+    const [show, setShow] = useState(false);
+    const toggleHandler = ()=>{
+        setShow(!show);
+    }
     return (
         <div>
             <li key={historyItem.id}>
-                <p>Operation: {historyItem.inputs.a} {historyItem.operations} {historyItem.inputs.b},
-                    Result: {historyItem.result}</p>
-                <small>Created
-                    At: {historyItem.date.toLocaleDateString()}, {historyItem.date.toLocaleTimeString()}</small>
+                <div>
+                    <p>Operation: {historyItem.inputs.a} {historyItem.operations} {historyItem.inputs.b},
+                        Result: {historyItem.result}</p>
+                    <Button onClick={toggleHandler} text={show?"Hide":"Show:"}/>
+                </div>
 
-                <Button disabled={disabled} text="Restore" onClick={() => handleRestoreBtn(historyItem)}/>
+                    {show && <> <small>Created
+                        At: {historyItem.date.toLocaleDateString()}, {historyItem.date.toLocaleTimeString()}</small>
 
-            </li>
-        </div>
-    );
+                        <Button  text="Restore" onClick={() => handleRestoreBtn(historyItem)} disabled={disabled} />
+                    </>
+                    }
+
+
+        </li>
+</div>
+)
+    ;
 };
 
 HistoryItem.propTypes = {

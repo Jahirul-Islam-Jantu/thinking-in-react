@@ -1,5 +1,4 @@
 import React from 'react';
-import propTypes from 'prop-types';
 import shortid from 'shortid';
 import Button from "../ui/Button.jsx";
 import PropTypes from "prop-types";

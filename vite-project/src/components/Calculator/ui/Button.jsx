@@ -5,14 +5,14 @@ const Button = ({text, onClick, disabled, customStyle}) => {
 
     return (
         <div>
-            <button className='btn' onClick={onClick} disabled={disabled}>{text}</button>
+            <button  className='btn' onClick={onClick} disabled={disabled}>{text}</button>
         </div>
     );
 };
 Button.propTypes = {
     text: PropTypes.string.isRequired,
     onClick: PropTypes.func.isRequired,
-    disabled: PropTypes.bool,
+    disabled: PropTypes.bool.isRequired,
     customStyle: PropTypes.object,
 }
 

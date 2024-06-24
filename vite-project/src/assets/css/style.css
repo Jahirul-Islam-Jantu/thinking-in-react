@@ -93,6 +93,10 @@ body{
     ...customStyle
     ...(disabled && disabledStyle)
 }
+.btn:disabled{
+    background-color: #8c8b8b;
+    color: #2c1717;
+}
 .field{
     padding: 0.5rem;
     border: 1px solid darkgray;
