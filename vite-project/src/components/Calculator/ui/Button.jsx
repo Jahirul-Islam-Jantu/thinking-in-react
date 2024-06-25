@@ -15,6 +15,9 @@ Button.propTypes = {
     disabled: PropTypes.bool.isRequired,
     customStyle: PropTypes.object,
 }
+Button.defaultProps = {
+     disabled: false,
+}
 
 
 export default Button;
