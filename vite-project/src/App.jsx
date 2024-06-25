@@ -6,16 +6,13 @@ import CalculatorApp from "./pages/CalculatorApp.jsx";
 import ContactApp from "./pages/ContactApp.jsx";
 
 const App = () => {
-    const [contacts, setContacts] = useState([]);
-    const getData = (values)=>{
-        setContacts([].concat(contacts, values));
-    }
+
     return (
         <BrowserRouter>
             <Routes>
                 <Route path="/" element={<CalculatorApp />} />
                 <Route path="/todoapp" element={<ToDoApp />} />
-                <Route path="/contactList" element={<ContactApp getData={getData} contacts={contacts} />} />
+                <Route path="/contactList" element={<ContactApp />} />
 
             </Routes>
         </BrowserRouter>
