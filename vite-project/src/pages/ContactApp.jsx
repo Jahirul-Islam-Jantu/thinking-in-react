@@ -6,8 +6,28 @@ const ContactFormInitValue = {
     name: '',
     email: '',
 }
+// const Table = ({contacts})=>{
+//     return (
+//         <table>
+//             <thead>
+//                 <tr>
+//                     <th> Name </th>
+//                     <th> Email </th>
+//                 </tr>
+//             </thead>
+//             <tbody>
+//             {contacts.map((contact, index) =>(
+//                 <tr key={index}>
+//                     <td>{contact.name}</td>
+//                     <td>{contact.email}</td>
+//                 </tr>
+//             ))}
+//             </tbody>
+//         </table>
+//     )
+// }
 
-const ContactApp = ({getData}) => {
+const ContactApp = ({getData, contacts }) => {
     const [values, setValues] = useState({...ContactFormInitValue});
     const {name, email} = values;
     const handleInputChange = (e)=>{
@@ -39,6 +59,24 @@ const ContactApp = ({getData}) => {
                 <br/>
                 <input type="submit" value={"Create new contact"} />
             </form>
+            <div>
+                <table>
+                    <thead>
+                    <tr>
+                        <th> Name</th>
+                        <th> Email</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    {contacts.map((contact, index) => (
+                        <tr  key={index}>
+                            <td style={{ padding: '1rem'}}>{contact.name}</td>
+                            <td style={{ padding: '1rem'}}>{contact.email}</td>
+                        </tr>
+                    ))}
+                    </tbody>
+                </table>
+            </div>
         </div>
     );
 };

@@ -15,7 +15,7 @@ const App = () => {
             <Routes>
                 <Route path="/" element={<CalculatorApp />} />
                 <Route path="/todoapp" element={<ToDoApp />} />
-                <Route path="/contactList" element={<ContactApp getData={getData} />} />
+                <Route path="/contactList" element={<ContactApp getData={getData} contacts={contacts} />} />
 
             </Routes>
         </BrowserRouter>
