@@ -10,7 +10,8 @@ const Table = ({contacts}) => {
     if (filter === "All"){
         filterContacts = contacts;
     }else {
-        filterContacts = contacts.filter(contact => contact.group === filter )
+        filterContacts = contacts.filter((contact) => contact.group === filter )
+
     }
 
     return (
@@ -41,11 +42,12 @@ const Table = ({contacts}) => {
                 </tr>
                 </thead>
                 <tbody>
-                {filterContacts.map((contact, index) => (
-                    <tr key={index}>
+                {filterContacts.map((contact, id) => (
+                    <tr key={id}>
                         <td style={{padding: '1rem'}}>{contact.name}</td>
                         <td style={{padding: '1rem'}}>{contact.email}</td>
                         <td style={{padding: '1rem'}}>{contact.group}</td>
+
                     </tr>
                 ))}
                 </tbody>
