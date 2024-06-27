@@ -41,7 +41,6 @@ const ContactForm = ({getData }) => {
                 <div style={{marginBottom: "1rem", display: "flex", justifyContent:"center", textAlign: "center"}}>
                     <label htmlFor="group"> Group: </label>
                     <select id="group" name="group" value={group} onChange={handleInputChange}>
-
                         <option value="">Select Option</option>
                         <option value="home">Home</option>
                         <option value="office">Office</option>

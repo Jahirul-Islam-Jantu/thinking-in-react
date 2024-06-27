@@ -13,6 +13,7 @@ const Table = ({contacts}) => {
         filterContacts = contacts.filter((contact) => contact.group === filter )
 
     }
+    const [search, setSearch] = useState('')
 
     return (
         <>
@@ -24,6 +25,7 @@ const Table = ({contacts}) => {
                     <option value="Home">Home</option>
                     <option value="Office">Office</option>
                 </select>
+                <input value={search} onChange={(e)=> setSearch(e.target.value}) type="search" placeholder="search" />
             </div>
             <div style={{
                 padding: "1rem",
