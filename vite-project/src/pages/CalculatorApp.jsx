@@ -13,6 +13,7 @@ import InputSection from "../components/Calculator/inputs/InputSection.jsx";
 import OperationSection from "../components/Calculator/operations/OperationSection.jsx";
 import HistorySection from "../components/Calculator/history/HistorySection.jsx";
 import MasterLayOut from "../components/MasterLayOut.jsx";
+import TimeCounterWithUseEffect from "../components/TimeCounterWithUseEffect.jsx";
 function* generateId(){
     let id = 0
     while (true){
@@ -108,7 +109,11 @@ const CalculatorApp = () => {
                 <InputSection inputs={inputState} handleInputChange={handleInputChange}/>
                 <OperationSection handleOperations={handleOperations} handleClearOps={handleClearOps}/>
                 <HistorySection historyList={historyList} restoredHistoryList={restoredHistoryList} handleRestoreBtn={handleRestoreBtn}/>
-
+            <br/>
+            <br/>
+            <>
+                <TimeCounterWithUseEffect/>
+            </>
         </div>
     );
 };
