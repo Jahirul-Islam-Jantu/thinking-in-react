@@ -1,20 +1,20 @@
 import {useState} from "react";
 
-const useCounter = ()=>{
-    const [counter, setCounter] = useState(0);
+const useCounter = ({initial = 0, upperBound= 20 , lowerBound = 0})=>{
+    const [counter, setCounter] = useState(initial);
 
     const handleInc= ()=>{
-        if(counter < 10){
+        if(counter < upperBound){
             setCounter(counter + 1);
         }
     }
     const handleDec= ()=>{
-        if(counter > 0){
+        if(counter > lowerBound){
             setCounter(counter - 1);
         }
     }
     return {
-        counter, handleInc, handleDec
+        counter,upperBound,lowerBound, handleInc, handleDec
     }
 
 

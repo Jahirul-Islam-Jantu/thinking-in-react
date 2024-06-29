@@ -3,9 +3,9 @@ import CountController from "./CountController.jsx";
 import useCounter from "./useCounter.js";
 
 const CountCustomHook = () => {
-    const {counter: counter1, handleInc: handleInc1, handleDec: handleDec1} = useCounter()
-    const {counter: counter2, handleInc: handleInc2, handleDec: handleDec2} =  useCounter()
-    const counter3 =  useCounter()
+    const {counter: counter1, handleInc: handleInc1, handleDec: handleDec1} = useCounter({initial: 0, upperBoun: 15 })
+    const {counter: counter2, handleInc: handleInc2, handleDec: handleDec2} =  useCounter({initial: -2, upperBound: 10 })
+    const counter3 =  useCounter({initial: -5, upperBound: 30 })
     return (
         <div>
             <>
