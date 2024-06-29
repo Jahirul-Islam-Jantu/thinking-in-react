@@ -32,7 +32,7 @@ useEffect(() => {
 
 
     useEffect(() => {
-        if (lock && timeCount === null)
+        if (lock && timeInterval === null)
         timeInterval = setInterval(() => {
         setTimeCount ((prev) => prev - 1)
         }, 1000)
