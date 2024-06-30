@@ -12,7 +12,8 @@ const TextInput = styled.input`
 
     &:focus {
         border: 2px solid #143679;
-        background: #8c8b8b;
+        background: rgba(0, 0, 0, 0.26);
+        color: #fff;
     }
 `
 export default TextInput;

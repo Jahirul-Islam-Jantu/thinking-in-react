@@ -1,14 +1,14 @@
 import React from 'react';
 import Menu from "../components/Menu.jsx";
-import TextInput from "../components/inputForms/input/TextInput.jsx";
+import InputGroup from "../components/inputForms/inputGroup/InputGroup.jsx";
 import BaseButton from "../components/inputForms/button/BaseButton.jsx";
 
 const Forms = () => {
     return (
-        <div>
+        <div className="top">
             <Menu/>
-                <TextInput/>
-                <BaseButton>This is Button</BaseButton>
+                <InputGroup name="title" placeholder={"What is Your Name?"} label={"Name"} />
+                <BaseButton className="gap">Do you agree?</BaseButton>
         </div>
     );
 };
