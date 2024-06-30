@@ -1,8 +1,7 @@
 import styled from "styled-components";
 
 const ErrorMessage = styled.div`
-    color: darkred;
-    font-weight: bold;
-    font-size: 30px;
+    color: red;
+    font-size: 16px;
 `
 export default ErrorMessage
