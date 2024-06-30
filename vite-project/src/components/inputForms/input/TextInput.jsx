@@ -9,6 +9,7 @@ const TextInput = styled.input`
     font-family: Arial, Helvetica, sans-serif;
     padding: 10px 20px;
     font-size: 16px;
+    border-radius: 10px;
 
     &:focus {
         border: 2px solid #143679;

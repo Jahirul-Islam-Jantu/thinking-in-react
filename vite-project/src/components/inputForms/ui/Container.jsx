@@ -7,6 +7,7 @@ const Container = styled.div`
     display: flex;
     flex-direction: column;
     gap: 1rem;
+    border-radius: 15px;
     
    
     &:hover{

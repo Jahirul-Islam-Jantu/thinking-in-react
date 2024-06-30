@@ -7,8 +7,9 @@ const Forms = () => {
     return (
         <div className="top">
             <Menu/>
-                <InputGroup name="title" placeholder={"What is Your Name?"} label={"Name"} />
+                <InputGroup name="title" placeholder={"What is Your Name?"} label={"Name"} error={"something went wrong"} />
                 <BaseButton className="gap">Do you agree?</BaseButton>
+
         </div>
     );
 };

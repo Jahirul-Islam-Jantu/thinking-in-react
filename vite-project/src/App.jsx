@@ -6,6 +6,7 @@ import CalculatorApp from "./pages/CalculatorApp.jsx";
 import ContactApp from "./pages/ContactApp.jsx";
 import CustomHook from "./pages/CustomHook.jsx";
 import Forms from "./pages/Forms.jsx";
+import InitialInputForm from "./pages/InitialInputForm.jsx";
 
 
 const App = () => {
@@ -18,6 +19,7 @@ const App = () => {
                 <Route path="/contactList" element={<ContactApp />} />
                 <Route path="/customhook" element={<CustomHook />} />
                 <Route path="/forms" element={<Forms />} />
+                <Route path="/inputForm" element={<InitialInputForm />} />
 
             </Routes>
         </BrowserRouter>
