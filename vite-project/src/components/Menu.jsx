@@ -8,6 +8,7 @@ const Menu = () => {
             <NavLink className="nav-link" to="/todoapp">Todo app</NavLink>
             <NavLink className="nav-link" to="/contactList">Contact</NavLink>
             <NavLink className="nav-link" to="/customhook">Custom Hook</NavLink>
+            <NavLink className="nav-link" to="/forms">Forms</NavLink>
 
         </div>
     );
