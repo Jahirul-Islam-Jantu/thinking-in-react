@@ -81,11 +81,15 @@ const useForm = ({init, validate})=>{
             hasError,
         }
     }
+    const clear = () => {
+        const newInit = mapValuesToState(init, true)
+        setState(newInit)
+    }
 
 
     return {
         formState: state,
-        handleChange, handleFocused, handleBlur, handleSubmit
+        handleChange, handleFocused, handleBlur, handleSubmit, clear
     }
 }
 
