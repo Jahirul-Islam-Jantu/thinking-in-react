@@ -19,6 +19,11 @@ const InitialInputForm = () => {
             ...prev,
             [e.target.name]: e.target.value,
         }))
+        const key = e.target.name;
+        const {errors} = checkValidity(formState)
+        if (!errors[key] ){
+            setErrors(prev => ({...prev, [key]: ""}))
+        }
     }
     const handleOnSubmit = (e) => {
         e.preventDefault()
@@ -39,7 +44,7 @@ const InitialInputForm = () => {
 
     const handleBlur = (e)=>{
         const key = e.target.name;
-        const {isValid, errors} = checkValidity(formState)
+        const {errors} = checkValidity(formState)
         if (errors[key] && focuses[key] === true ){
             setErrors(prev => ({...prev, [key]: errors[key]}))
         } else {
