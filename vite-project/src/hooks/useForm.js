@@ -17,6 +17,7 @@ const useForm = ({init, validate})=>{
         }else {
             oldState[key].error = ""
         }
+        setState(oldState)
     }
 
     const handleFocused = (e) => {
@@ -49,9 +50,9 @@ const useForm = ({init, validate})=>{
     }
     const handleSubmit = (e, cb) => {
         e.preventDefault()
-        const { hasErrors, errors, values} = getErrors()
+        const {errors, hasError,  values} = getErrors()
         cb({
-            hasErrors,
+            hasError,
             errors,
             values,
             touched: mapValuesToState(state, "touched"),
@@ -60,16 +61,16 @@ const useForm = ({init, validate})=>{
 
     }
 
-    const getErrors = ()=>{
+    const getErrors = (e)=>{
         let hasError = null, errors = null
 
         const values = mapStateToKeys(state, "value")
 
         if (typeof validate === "boolean"){
-            hasError = validate
+            hasError = validate;
             errors = mapStateToKeys(state, "error")
         }else if (typeof validate === "function"){
-            const {errors: errorsFromCB } = validate(values)
+            const  errorsFromCB  = validate(values)
             hasError = !isObjEmpty(errorsFromCB)
             errors = errorsFromCB
         }else{
@@ -77,8 +78,8 @@ const useForm = ({init, validate})=>{
         }
         return {
             values,
-            errors,
             hasError,
+            errors,
         }
     }
     const clear = () => {
