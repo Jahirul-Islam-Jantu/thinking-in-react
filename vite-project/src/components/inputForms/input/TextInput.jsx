@@ -2,7 +2,7 @@ import styled from "styled-components";
 
 const TextInput = styled.input`
     width: 100%;
-    border: ${(props)=>props.error ? '2px solid #ff0000': '2px solid #ccc'};
+    border: ${(props)=>props.error ? "1px solid red" : "1px solid skyblue"};
     outline: none;
     background: #dddddd;
     color: #999999;

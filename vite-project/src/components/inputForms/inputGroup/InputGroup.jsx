@@ -4,11 +4,11 @@ import Container from "../ui/Container.jsx";
 import TextInput from "../input/TextInput.jsx";
 import ErrorMessage from "../errorHandle/ErrorMessage.jsx";
 
-const InputGroup = ({label, name, value, placeholder, onChange, error, onFocus}) => {
+const InputGroup = ({label, name, value, placeholder, onChange, error, onFocus, onBlur}) => {
     return (
         <Container>
             <Label htmlFor={name}> {label} </Label>
-            <TextInput placeholder={placeholder ?? ""} id={name} name={name} value={value} onChange={onChange} error={error} onFocus={onFocus} />
+            <TextInput placeholder={placeholder ?? ""} id={name} name={name} value={value} onChange={onChange} error={error} onFocus={onFocus} onBlur={onBlur} />
             {error && <ErrorMessage>{error}</ErrorMessage>}
         </Container>
     );

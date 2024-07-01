@@ -8,6 +8,11 @@ import BaseButton from "../components/inputForms/button/BaseButton.jsx";
 const InitialInputForm = () => {
     const [formState, setFormState] = useState({...initialForm})
     const [errors, setErrors] = useState({...initialForm})
+    const [focuses, setFocuses] = useState({
+        title: false,
+        bio: false,
+        skills: false,
+    })
 
     const handleOnChange = (e) => {
         setFormState((prev)=>({
@@ -26,8 +31,20 @@ const InitialInputForm = () => {
     }
 
     const handleFocus = (e)=>{
-        const {errors} = checkValidity(formState)
-        setErrors({...errors})
+        setFocuses((prev) => ({
+            ...prev,
+            [e.target.name]: true,
+        }))
+    }
+
+    const handleBlur = (e)=>{
+        const key = e.target.name;
+        const {isValid, errors} = checkValidity(formState)
+        if (errors[key] && focuses[key] === true ){
+            setErrors(prev => ({...prev, [key]: errors[key]}))
+        } else {
+            setErrors(prev => ({...prev, [key]: ""}))
+        }
     }
 
     const checkValidity = (formState)=>{
@@ -47,16 +64,18 @@ const InitialInputForm = () => {
             errors,
             isValid: Object.keys(errors).length === 0
         }
+
     }
+    console.log(formState)
 
     return (
         <div >
             <Menu/>
             <form onSubmit={handleOnSubmit}>
                 <div style={{display: 'flex', flexDirection: 'column', gap: '1rem'}}>
-                    <InputGroup onFocus={handleFocus} error={errors.title} name={'title'} placeholder={'Software engineer'} label={'Title:'} value={formState.title} onChange={handleOnChange}/>
-                    <InputGroup onFocus={handleFocus} error={errors.bio} name={'bio'} placeholder={'I am a Software engineer.....'} label={'Bio:'} value={formState.bio} onChange={handleOnChange}/>
-                    <InputGroup onFocus={handleFocus} error={errors.skills} name={'skills'} placeholder={'JavaScript, React, NodeJs, ExpressJs'} label={'Skills:'} value={formState.skills} onChange={handleOnChange}/>
+                    <InputGroup    name={'title'} placeholder={'Software engineer'} label={'Title:'} value={formState.title} error={errors.title} onChange={handleOnChange} onFocus={handleFocus} onBlur={handleBlur}/>
+                    <InputGroup   name={'bio'} placeholder={'I am a Software engineer.....'} label={'Bio:'} value={formState.bio}   error={errors.bio} onChange={handleOnChange} onFocus={handleFocus} onBlur={handleBlur}/>
+                    <InputGroup  name={'skills'} placeholder={'JavaScript, React, NodeJs, ExpressJs'} label={'Skills:'} value={formState.skills} error={errors.skills} onChange={handleOnChange} onFocus={handleFocus} onBlur={handleBlur} />
                     <BaseButton type="submit" >Submit</BaseButton>
                 </div>
             </form>
