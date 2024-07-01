@@ -7,6 +7,7 @@ import ContactApp from "./pages/ContactApp.jsx";
 import CustomHook from "./pages/CustomHook.jsx";
 import Forms from "./pages/Forms.jsx";
 import InitialInputForm from "./pages/InitialInputForm.jsx";
+import DynamicForm from "./pages/DynamicForm.jsx";
 
 
 const App = () => {
@@ -20,6 +21,7 @@ const App = () => {
                 <Route path="/customhook" element={<CustomHook />} />
                 <Route path="/forms" element={<Forms />} />
                 <Route path="/inputForm" element={<InitialInputForm />} />
+                <Route path="/dynamicForm" element={<DynamicForm />} />
 
             </Routes>
         </BrowserRouter>

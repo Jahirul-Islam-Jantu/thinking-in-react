@@ -10,6 +10,7 @@ const Menu = () => {
             <NavLink className="nav-link" to="/customhook">Custom Hook</NavLink>
             <NavLink className="nav-link" to="/forms">Forms</NavLink>
             <NavLink className="nav-link" to="/inputForm">Input Form</NavLink>
+            <NavLink className="nav-link" to="/dynamicForm">Dynamic Form</NavLink>
 
         </div>
     );
